@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rumesh Rathnayake — IT Support & Operations</title>
+<meta name="description" content="Portfolio of Rumesh Rathnayake — L1/L2 technical support, service delivery and operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F1115;
+    --bg-raised:#161923;
+    --paper:#F5F3EE;
+    --green:#2D6A4F;
+    --green-bright:#4C9B7C;
+    --amber:#E8A33D;
+    --grey:#8B95A1;
+    --line:#242835;
+    --max:760px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+
+  /* status strip */
+  .status{
+    border-bottom:1px solid var(--line);
+    background:var(--bg-raised);
+  }
+  .status .wrap{
+    display:flex; align-items:center; gap:10px;
+    padding:14px 24px;
+    font-size:13px;
+    color:var(--grey);
+    flex-wrap:wrap;
+  }
+  .dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--green-bright);
+    box-shadow:0 0 0 3px rgba(76,155,124,0.18);
+    flex-shrink:0;
+  }
+  .status strong{color:var(--paper); font-weight:500;}
+  .status .sep{color:var(--line);}
+
+  /* hero */
+  header.hero{padding:72px 0 56px;}
+  header.hero h1{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:clamp(36px,6vw,54px);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    max-width:11ch;
+  }
+  header.hero p.role{
+    margin-top:14px;
+    font-size:18px;
+    color:var(--amber);
+    font-weight:500;
+  }
+  header.hero p.lede{
+    margin-top:18px;
+    max-width:56ch;
+    color:#C9CDD6;
+    font-size:16px;
+  }
+  .contact-row{
+    margin-top:28px;
+    display:flex; flex-wrap:wrap; gap:18px;
+    font-size:14px;
+  }
+  .contact-row a{
+    color:var(--paper);
+    text-decoration:none;
+    border-bottom:1px solid var(--green-bright);
+    padding-bottom:2px;
+  }
+  .contact-row a:hover{color:var(--green-bright);}
+
+  section{padding:48px 0; border-top:1px solid var(--line);}
+  h2.section-title{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:24px;
+    margin-bottom:28px;
+    color:var(--paper);
+  }
+
+  /* metrics band */
+  .metrics{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:24px 32px;
+  }
+  .metric .num{
+    font-family:'Fraunces',serif;
+    font-size:32px;
+    color:var(--green-bright);
+    font-weight:500;
+  }
+  .metric .label{
+    font-size:13px;
+    color:var(--grey);
+    margin-top:4px;
+  }
+
+  /* log entries (experience) */
+  .log{border-left:1px solid var(--line); margin-left:4px;}
+  .entry{
+    position:relative;
+    padding:0 0 32px 28px;
+  }
+  .entry:last-child{padding-bottom:0;}
+  .entry::before{
+    content:'';
+    position:absolute;
+    left:-5px; top:6px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--green-bright);
+  }
+  .entry .meta{
+    font-size:13px;
+    color:var(--grey);
+    display:flex; gap:10px; flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .entry .meta .tag{
+    color:var(--amber);
+    font-weight:500;
+  }
+  .entry h3{
+    font-size:17px;
+    font-weight:600;
+    margin-bottom:2px;
+  }
+  .entry .org{
+    color:#C9CDD6;
+    font-size:14px;
+    margin-bottom:10px;
+  }
+  .entry ul{
+    list-style:none;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .entry ul li{
+    font-size:14.5px;
+    color:#C9CDD6;
+    padding-left:16px;
+    position:relative;
+  }
+  .entry ul li::before{
+    content:'—';
+    position:absolute; left:0; color:var(--grey);
+  }
+
+  /* skills */
+  .skill-groups{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:24px;
+  }
+  .skill-group h3{
+    font-size:13px;
+    text-transform:none;
+    color:var(--amber);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-size:13px;
+    padding:6px 12px;
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:4px;
+    color:#DCE0E6;
+  }
+
+  /* project */
+  .project-card{
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:28px;
+  }
+  .project-card h3{
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    font-weight:500;
+    margin-bottom:6px;
+  }
+  .project-card .stack{
+    font-size:13px;
+    color:var(--grey);
+    margin-bottom:16px;
+  }
+  .project-card p{
+    color:#C9CDD6;
+    font-size:14.5px;
+    margin-bottom:14px;
+  }
+  .project-card ul{
+    list-style:none;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .project-card ul li{
+    font-size:14.5px;
+    color:#C9CDD6;
+    padding-left:16px;
+    position:relative;
+  }
+  .project-card ul li::before{
+    content:'—';
+    position:absolute; left:0; color:var(--grey);
+  }
+
+  /* education/certs */
+  .cert-list{display:flex; flex-direction:column; gap:14px;}
+  .cert-list .item{
+    display:flex; justify-content:space-between; gap:16px;
+    font-size:14.5px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .cert-list .item:last-child{border-bottom:none; padding-bottom:0;}
+  .cert-list .item .name{color:var(--paper); font-weight:500;}
+  .cert-list .item .issuer{color:var(--grey); font-size:13px;}
+  .cert-list .item .when{color:var(--grey); font-size:13px; white-space:nowrap;}
+
+  footer{
+    padding:40px 0 60px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:var(--grey);
+  }
+  footer a{border-bottom:1px solid var(--line); padding-bottom:1px;}
+
+  @media (max-width:520px){
+    .status .wrap{padding:12px 20px;}
+    header.hero{padding:56px 0 40px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="status">
+  <div class="wrap">
+    <span class="dot"></span>
+    <span><strong>Available</strong> for new roles</span>
+    <span class="sep">·</span>
+    <span>8 years in IT &amp; operations support</span>
+    <span class="sep">·</span>
+    <span>Based in Colombo, Sri Lanka</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Rumesh Rathnayake</h1>
+    <p class="role">IT Support &amp; Service Operations</p>
+    <p class="lede">I keep tickets moving, SLAs met, and escalations documented clearly enough that no one has to ask twice. Eight years across L1/L2 technical support, fraud investigation and service delivery — currently leading L2 operations for a SaaS mobile app.</p>
+    <div class="contact-row">
+      <a href="mailto:rumesheranga997@gmail.com">rumesheranga997@gmail.com</a>
+      <a href="tel:+94766484699">+94 76 648 4699</a>
+      <a href="https://linkedin.com/in/rumeshrathnayake97" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <h2 class="section-title">Experience</h2>
+    <div class="log">
+
+      <div class="entry">
+        <div class="meta"><span class="tag">L2</span><span>Oct 2025 — Present</span></div>
+        <h3>Engagement Operations Specialist</h3>
+        <div class="org">Shopkick by Trax</div>
+        <ul>
+          <li>Lead daily L2 support operations for the Shopkick app, keeping the team on service and quality targets.</li>
+          <li>Investigate fraudulent user patterns with SIFT and SQL, and put preventive measures in place.</li>
+          <li>Own JIRA tickets end to end and escalate critical issues to the right teams.</li>
+          <li>Act as technical reference point for escalations, writing clearer resolution documentation to cut repeat cases.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="meta"><span class="tag">L1</span><span>Feb 2024 — Oct 2025</span></div>
+        <h3>Shopkick Support Executive</h3>
+        <div class="org">Shopkick by Trax</div>
+        <ul>
+          <li>Provided L1 support for Shopkick app users, resolving inquiries within SLA via Zendesk.</li>
+          <li>Managed and prioritised the incoming ticket queue for timely first response.</li>
+          <li>Escalated complex issues to L2 with clear documentation of steps already taken.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="meta"><span class="tag">Supervisor</span><span>2019 — 2024</span></div>
+        <h3>Assistant Supervisor, BOC Service Delivery</h3>
+        <div class="org">Globel System Solutions International (Pvt) Ltd</div>
+        <ul>
+          <li>Supervised a service delivery team, managed project SLAs and coordinated targets with regional centres.</li>
+          <li>Reported on KPIs and revenue data for clients including Coca-Cola, Pepsi, BAT, Diageo, Sanofi and GSK.</li>
+          <li>Scheduled rosters and resolved SLA breaches with Regional Coordinators.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="meta"><span>2018 — 2019</span></div>
+        <h3>Backoffice Service Controller &amp; Data Assurance Technician</h3>
+        <div class="org">Globel System Solutions International (Pvt) Ltd</div>
+        <ul>
+          <li>Handled RETRO tickets and customer issues within defined SLA timeframes.</li>
+          <li>Generated monthly regional performance reports using JIRA, Excel and Grafana.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <h2 class="section-title">Project</h2>
+    <div class="project-card">
+      <h3>Pet Care Centre Management System</h3>
+      <div class="stack">BIT Final Year Project · Laravel · Blade · MySQL</div>
+      <p>A web-based system for appointment booking, client management and revenue reporting, built and defended as my final-year BIT project.</p>
+      <ul>
+        <li>Designed the database schema and resolved MySQL/MariaDB compatibility issues.</li>
+        <li>Built appointment, client and revenue-report modules with Excel/PDF export.</li>
+        <li>Produced use case, ER and sequence diagrams; redesigned the dashboard UI with Chart.js.</li>
+        <li>Presented and defended the system before an academic panel.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="section-title">Skills &amp; Tools</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Service desk</h3>
+        <div class="chips">
+          <span class="chip">Ticket triage</span>
+          <span class="chip">L1→L2 escalation</span>
+          <span class="chip">SLA management</span>
+          <span class="chip">Knowledge base docs</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Tools</h3>
+        <div class="chips">
+          <span class="chip">Zendesk</span>
+          <span class="chip">JIRA</span>
+          <span class="chip">Confluence</span>
+          <span class="chip">SIFT</span>
+          <span class="chip">Tableau</span>
+          <span class="chip">Grafana</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Excel</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Operations</h3>
+        <div class="chips">
+          <span class="chip">Roster scheduling</span>
+          <span class="chip">KPI reporting</span>
+          <span class="chip">Quality assurance</span>
+          <span class="chip">Fraud detection</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="chips">
+          <span class="chip">Sinhala (native)</span>
+          <span class="chip">English (professional)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2 class="section-title">Education &amp; Certifications</h2>
+    <div class="cert-list">
+      <div class="item">
+        <div>
+          <div class="name">Bachelor of Information Technology (BIT)</div>
+          <div class="issuer">University of Colombo School of Computing</div>
+        </div>
+        <div class="when">Results pending</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="name">Higher National Diploma in IT</div>
+          <div class="issuer">Completed</div>
+        </div>
+        <div class="when">Oct 2025</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="name">PQHRM — Professional Qualification in HR Management</div>
+          <div class="issuer">CIPM Sri Lanka</div>
+        </div>
+        <div class="when">Dec 2022</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="name">Postgraduate Diploma in Business Management</div>
+          <div class="issuer">OTHM UK</div>
+        </div>
+        <div class="when">Dec 2023</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="name">Foundations of Project Management</div>
+          <div class="issuer">University of Moratuwa</div>
+        </div>
+        <div class="when">—</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="name">Agile Project Management for ICT Projects</div>
+          <div class="issuer">University of Moratuwa</div>
+        </div>
+        <div class="when">—</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="name">Project Scope &amp; Schedule Management</div>
+          <div class="issuer">University of Moratuwa</div>
+        </div>
+        <div class="when">—</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="name">Project Communication &amp; Stakeholder Management</div>
+          <div class="issuer">University of Moratuwa</div>
+        </div>
+        <div class="when">—</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Rumesh Rathnayake · Piliyandala, Colombo · <a href="mailto:rumesheranga997@gmail.com">rumesheranga997@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
